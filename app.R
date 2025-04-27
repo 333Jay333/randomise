@@ -114,7 +114,7 @@ server <- function(input, output, session) {
           if (df.exercises$BOOL_PV[index]) {
             pv.exercises.ziel <- c(df.exercises$PV1[index], df.exercises$PV2[index])
             pv.matching <- pv.exercises.ziel %in% input$pv
-            # if there is no true -> add to randomise.choices -> thanks ChatGPT for the syntax
+            # if there is no true -> add to randomise.choices
             if (!TRUE %in% pv.matching) {
               randomise.choices <- c(randomise.choices,df.exercises$Name[index])
             }
@@ -229,7 +229,7 @@ server <- function(input, output, session) {
   finalProgram <- eventReactive(input$go, {
     output <- input$toKeep
     output <- c(output, randomising())
-    output.sorted <- output[order(factor(output, levels = choices.exercises))] #thanks ChatGPT -> sort according to order of choices
+    output.sorted <- output[order(factor(output, levels = choices.exercises))]
     return(output.sorted)
   })
   
