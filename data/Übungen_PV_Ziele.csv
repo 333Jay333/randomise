@@ -1,0 +1,29 @@
+﻿Index,Name,BOOL_PV,PV1,PV2,BOOL_Ziel,Ziel,Gruppe
+1,1 Beckenkippen Flex,FALSE,,,FALSE,Beweglichkeit LWS Flex,Mobilisation
+2,2 Beckenkippen Ext,FALSE,,,TRUE,Beweglichkeit LWS Ext,Mobilisation
+3,3 Automobi LWS Ext,FALSE,,,TRUE,Beweglichkeit LWS Ext,Mobilisation
+4,4 Automobi LWS Rot,FALSE,,,FALSE,Beweglichkeit LWS Rot,Mobilisation
+5,5 Automobi HG Flex,FALSE,,,FALSE,Beweglichkeit HG Flex,Mobilisation
+6,6 Automobi HG Ext,FALSE,,,FALSE,Beweglichkeit HG Ext,Mobilisation
+7,7 Dehnung Ischios,FALSE,,,FALSE,Beweglichkeit Mm. ischio.,Mobilisation
+8,8 Dehnung Iliopsoas,FALSE,,,FALSE,Beweglichkeit M. iliopsoas,Mobilisation
+9,9 Dehnung Rectus,FALSE,,,FALSE,Beweglichkeit M. rect. fem.,Mobilisation
+10,10 Mechanosens Ischias,FALSE,,,FALSE,Mechanosens. N. ischiad.,Mobilisation
+11,11 Kontrolle Flex,FALSE,,,FALSE,Bew. kontr. Flex,Kontrolle
+12,12 Kontrolle Ext,TRUE,Bauchlage mit angewinkelten Beinen,,FALSE,Bew. kontr. Ext,Kontrolle
+13,13 Kontrolle Rot,FALSE,,,FALSE,Bew. kontr. Rot,Kontrolle
+14,14 Kontrolle LF dyn,FALSE,,,TRUE,Bew. kontr. LF,Kontrolle
+15,15 Kontrolle LF stat,FALSE,,,TRUE,Bew. kontr. LF,Kontrolle
+16,16 SuffKraft HG Flex,TRUE,Rückenlage mit angewinkelten Beinen,,FALSE,Suff/Kraft HG Flex,Kraft
+17,17 SuffKraft HG Ext RL,TRUE,Brüggli-Position (z.B. Bridging),,TRUE,Suff/Kraft HG Ext,Kraft
+18,18 SuffKraft HG Ext BL,TRUE,beidseitiger Unterarmstütz mit wenig Körpergewicht,,TRUE,Suff/Kraft HG Ext,Kraft
+19,19 SuffKraft HG Ext stehend,TRUE,Kniebeugen (z.B. Squats),,TRUE,Suff/Kraft HG Ext,Kraft
+20,20 SuffKraft HG Abd liegend,TRUE,Seitenlage,einseitiger Unterarmstütz mit viel Körpergewicht,TRUE,Suff/Kraft HG Abd,Kraft
+21,21 SuffKraft HG Abd stehend,FALSE,,,TRUE,Suff/Kraft HG Abd,Kraft
+22,22 Kraft dors Kette prox,FALSE,,,TRUE,Kraft dorsale Kette,Kraft
+23,23 Kraft dors Kette dist,TRUE,Bauchlage mit gestreckten Beinen (flache Bauchlage),,TRUE,Kraft dorsale Kette,Kraft
+24,24 Kraft vent Kette RL,TRUE,Rückenlage mit angewinkelten Beinen,,TRUE,Kraft ventrale Kette,Kraft
+25,25 Kraft vent Kette Stütz,TRUE,beidseitiger Unterarmstütz mit viel Körpergewicht,,TRUE,Kraft ventrale Kette,Kraft
+26,26 Stabi FlexRot Stütz,TRUE,beidseitiger Unterarmstütz mit viel Körpergewicht,,FALSE,glob. Stabi Flex/Rot,Kraft
+27,27 Stabi ExtRot RL,TRUE,Brüggli-Position (z.B. Bridging),,TRUE,glob. Stabi Ext/Rot,Kraft
+28,28 Stabi ExtRot Stütz,TRUE,beidseitiger Unterarmstütz mit viel Körpergewicht,,TRUE,glob. Stabi Ext/Rot,Kraft
