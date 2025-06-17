@@ -1,6 +1,6 @@
 ﻿Index,Name,BOOL_PV,PV1,PV2,BOOL_Ziel,Ziel,Gruppe
-1,1 Beckenkippen Flex,FALSE,,,FALSE,Beweglichkeit LWS Flex,Mobilisation
-2,2 Beckenkippen Ext,FALSE,,,TRUE,Beweglichkeit LWS Ext,Mobilisation
+1,1 Automobi LWS Flex Beckenkippen,FALSE,,,FALSE,Beweglichkeit LWS Flex,Mobilisation
+2,2 Automobi LWS Ext Beckenkippen,FALSE,,,TRUE,Beweglichkeit LWS Ext,Mobilisation
 3,3 Automobi LWS Ext,FALSE,,,TRUE,Beweglichkeit LWS Ext,Mobilisation
 4,4 Automobi LWS Rot,FALSE,,,FALSE,Beweglichkeit LWS Rot,Mobilisation
 5,5 Automobi HG Flex,FALSE,,,FALSE,Beweglichkeit HG Flex,Mobilisation
@@ -12,8 +12,8 @@
 11,11 Kontrolle Flex,FALSE,,,FALSE,Bew. kontr. Flex,Kontrolle
 12,12 Kontrolle Ext,TRUE,Bauchlage mit angewinkelten Beinen,,FALSE,Bew. kontr. Ext,Kontrolle
 13,13 Kontrolle Rot,FALSE,,,FALSE,Bew. kontr. Rot,Kontrolle
-14,14 Kontrolle LF dyn,FALSE,,,TRUE,Bew. kontr. LF,Kontrolle
-15,15 Kontrolle LF stat,FALSE,,,TRUE,Bew. kontr. LF,Kontrolle
+14,14 Automobi LWS LF,FALSE,,,FALSE,Beweglichkeit LF,Mobilisation
+15,15 Kontrolle LF,FALSE,,,FALSE,Bew. kontr. LF,Kontrolle
 16,16 SuffKraft HG Flex,TRUE,Rückenlage mit angewinkelten Beinen,,FALSE,Suff/Kraft HG Flex,Kraft
 17,17 SuffKraft HG Ext RL,TRUE,Brüggli-Position (z.B. Bridging),,TRUE,Suff/Kraft HG Ext,Kraft
 18,18 SuffKraft HG Ext BL,TRUE,beidseitiger Unterarmstütz mit wenig Körpergewicht,,TRUE,Suff/Kraft HG Ext,Kraft

@@ -10,16 +10,22 @@
 library(shiny)
 library(rio)
 
-# Data & variables
-df.exercises <- import("data/Übungen_PV_Ziele.csv")
+df.exercises <- import("Übungen_PV_Ziele.csv")
 choices.exercises <- df.exercises$Name
 choices.pv <- c("Bauchlage mit gestreckten Beinen (flache Bauchlage)","Bauchlage mit angewinkelten Beinen","Seitenlage","Rückenlage mit angewinkelten Beinen",
                 "Brüggli-Position (z.B. Bridging)","Kniebeugen (z.B. Squats)","einseitiger Unterarmstütz mit viel Körpergewicht","beidseitiger Unterarmstütz mit wenig Körpergewicht",
                 "beidseitiger Unterarmstütz mit viel Körpergewicht","Andere Position (z.B. Vierfüssler, Fersensitz, Kniestand, Rückenlage mit gestreckten Beinen (flache Rückenlage), vorgebeugtes Stehen (z.B. gehaltene Flexion), beidseitig Stützen mit gestreckten Armen)")
 
-
 # Define UI for application 
 ui <- fluidPage(
+  tags$head(
+    tags$style(HTML("
+        .myclass pre {
+          color: red;
+        }"))
+  ),
+  #useShinyjs(),
+  #extendShinyjs(text = jsResetCode, functions = "resetPage"),
   
   # Application title
   titlePanel("Übungen mit Positionsverboten ersetzen"),
@@ -27,8 +33,10 @@ ui <- fluidPage(
   # Input Sidebar
   sidebarLayout(
     sidebarPanel(
-      selectInput("toReplace", label = "Welche Übungen im unpersonalisierten Übungsprogramm müssen ersetzt werden?", choices = choices.exercises, multiple = TRUE),
       selectInput("pv", label = "Welche Positionsverbote gibt es?", choices = choices.pv, multiple = TRUE),
+      tags$b(textOutput("pv_list_label")),
+      div(class = "myclass", verbatimTextOutput("pv_list")),
+      selectInput("toReplace", label = "Welche Übungen im unpersonalisierten Übungsprogramm müssen ersetzt werden?", choices = choices.exercises, multiple = TRUE),
       selectInput("toKeep", label = "Welche Übungen sollen im unpersonalisierten Übungsprogramm beibehalten werden?", choices = choices.exercises, multiple = TRUE),
       actionButton("go","Übungen randomisiert ersetzen"),
       p(""),
@@ -39,6 +47,8 @@ ui <- fluidPage(
     
     # Show text
     mainPanel(
+      #textOutput("chosenToKeep"),
+      #textOutput("chosenToReplace"),
       span(textOutput("header"), style = "font-size:20px; font-style:bold" ),
       verbatimTextOutput("generated"),
       span(textOutput("header_2"), style = "font-size:20px; font-style:bold" ),
@@ -49,6 +59,24 @@ ui <- fluidPage(
 
 # Define server logic
 server <- function(input, output, session) {
+  
+  # PV text
+  pv.text <- observeEvent(input$pv, {
+    pv.text <- c()
+    
+    for (pv in input$pv) {
+      pv.text <- c(pv.text,  df.exercises[df.exercises$PV1 %in% pv,]$Name)
+      pv.text <- c(pv.text,  df.exercises[df.exercises$PV2 %in% pv,]$Name)
+    }
+    
+    pv.text <- sort(pv.text)
+    #pv.text <- df.temp$Name
+    
+    output$pv_list_label <- renderText({"Folgende Übungen sind kontraindiziert "})
+    output$pv_list <- renderText({ paste("", pv.text, collapse = "\n") })
+  })
+  
+  
   
   # randomising logic
   # I create a list of eligible exercises that can be randomised from
@@ -114,7 +142,7 @@ server <- function(input, output, session) {
           if (df.exercises$BOOL_PV[index]) {
             pv.exercises.ziel <- c(df.exercises$PV1[index], df.exercises$PV2[index])
             pv.matching <- pv.exercises.ziel %in% input$pv
-            # if there is no true -> add to randomise.choices
+            # if there is no true -> add to randomise.choices 
             if (!TRUE %in% pv.matching) {
               randomise.choices <- c(randomise.choices,df.exercises$Name[index])
             }
@@ -213,6 +241,7 @@ server <- function(input, output, session) {
           }
         }
         
+        
         # RANDOMISE
         # same as before
         randomised <- c(randomised, sample(randomise.choices,1))
@@ -224,12 +253,11 @@ server <- function(input, output, session) {
     return(randomised)
   })
   
-  
   # Lastly, I can display my final program in the mainPanel
   finalProgram <- eventReactive(input$go, {
     output <- input$toKeep
     output <- c(output, randomising())
-    output.sorted <- output[order(factor(output, levels = choices.exercises))]
+    output.sorted <- output[order(factor(output, levels = choices.exercises))] 
     return(output.sorted)
   })
   
@@ -251,7 +279,7 @@ server <- function(input, output, session) {
   # Reset Button
   observeEvent(input$reset, {
     reset("toKeep")
-    updateSelectInput(session, "toKeep", choices = choices, selected = "")
+    updateSelectInput(session, "toKeep", choices = choices, selected = "") #doesn't work yet
     reset("toReplace")
     updateSelectInput(session, "toReplace", choices = choices, selected = "")
     reset("generated")
